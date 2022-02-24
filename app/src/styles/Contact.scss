@@ -1,0 +1,179 @@
+@import "./variables";
+
+.contact {
+    width:100%;
+    max-width:1000px;
+    padding:0px 10px;
+    margin: 160px auto 0px auto;
+    &__header {
+        display:flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        max-width: 600px;
+        margin-bottom: 80px;
+    }
+}
+
+.form {
+    position:relative;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
+    &> form {
+        display:flex;
+        flex-direction: column;
+        width:100%;
+        max-width: 580px;
+        &>label {
+            position:relative;
+            margin-bottom:40px;
+            & input[type=text], & input[type=number] {
+                width:100%;
+                border: 0;
+                outline: 0;
+                border-bottom: 1px solid rgb(204,204,204);
+                background: none;
+                padding: 0px 0px 8px 0px;
+                transition: color 0.3s, border-bottom 0.3s;
+            }
+            & input[type=text]:not(:placeholder-shown) ~ span, & input[type=number]:not(:placeholder-shown) ~ span, & input[type=text]:focus ~ span, & input[type=number]:focus ~ span {
+               transform: translateY(-18px) scale(0.6);
+            }
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover, 
+            input:-webkit-autofill:focus, 
+            input:-webkit-autofill:active {
+                -webkit-box-shadow: 0 0 0 30px white inset !important;
+            }
+        }
+        &>label:nth-of-type(1),&>label:nth-of-type(2),&>label:nth-of-type(3),&>label:nth-of-type(4) {
+            & >span {
+                position:absolute;
+                width:100%;
+                left:0;
+                top:0;
+                pointer-events: none;
+                transform-origin: left top;
+                transition: transform 0.3s, color 0.3s,
+            }
+        }
+        &>label:last-of-type {
+            margin:0;
+        }
+    }
+    &__captcha {
+        margin-top:40px;
+    }
+    &__bottom {
+        display:flex;
+        justify-content: space-between;
+        margin-top:25px;
+    }
+    &__argeement {
+        width:300px;
+        &>label {
+            position:relative;
+            display:flex;
+            align-items: center;
+            cursor:pointer;
+            user-select: none;
+            &>div:nth-of-type(1) {
+                position:relative;
+                margin-right: 15px;
+                &>input{
+                    position: absolute;
+                    opacity: 0;
+                }
+                &>input:checked + span {
+                    background: rgb(0,0,0);
+                }
+                &>span {
+                    display:flex;
+                    align-items: center;
+                    justify-content: center;
+                    width:26px;
+                    height:26px;
+                    border: 1px solid rgb(0,0,0);
+                    color: $base-background-color;
+                    &> svg {
+                        color:inherit;
+                    }
+                }
+            }
+            &>div:nth-of-type(2) {
+                font-size: 0.6rem;
+                line-height: 1.1rem;
+            }
+        }
+    }
+    &__submit {
+        display:flex;
+        align-items: center;
+        border: 0;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    &__info {
+        display:block;
+        color: rgb(230, 0, 0);
+        font-size:0.7rem;
+        margin-top:10px;
+        pointer-events: none;
+        user-select: none;
+    }
+    &__score {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width:100%;
+        max-width:580px;
+        &--correct {
+            color: rgba(43, 189, 46);
+        }
+        &--wrong {
+            color: rgb(230, 0, 0);
+        }
+    }
+    &__loader {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        background: $base-background-color;
+        transform: rotate(0deg);
+        &> svg {
+            animation: 2s loaderRotate linear infinite;
+        }
+    }
+    &__contact {
+        display:flex;
+        flex-direction: column;
+        &>a {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
+            &>svg {
+                margin-bottom: 20px;
+            }
+        }
+        &>a:last-of-type {
+            margin:0;
+        }
+    }
+}
+
+@keyframes loaderRotate {
+    0% {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}

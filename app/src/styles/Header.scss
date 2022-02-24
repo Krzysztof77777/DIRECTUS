@@ -1,0 +1,46 @@
+.header {
+    width:100%;
+    height:100vh;
+    background:red;
+    &__content {
+        width:100%;
+        height:100%;
+    }
+    &__logo {
+        position: absolute;
+        background: blue;
+        width: 144px;
+        height: 100px;
+        top: 25px;
+        left: 75px;
+        z-index: 102;
+        @media(max-width: 1024px) {
+            position:fixed;
+            top:0;
+            left:5%;
+            width:100px;
+            height:60px;
+        }
+        & a {
+            display:flex;
+            width:100%;
+            height:100%;
+        }
+    }
+    &__title {
+        position:absolute;
+        left:0;
+        bottom:0;
+        right:0;
+        max-width: 921px;
+        padding: 80px 100px;
+        background: rgba(0, 0, 0, 0.4);
+        @media (max-width: 1200px) {
+            width:100%;
+            padding: 40px 0px;
+        }
+        & h1 {
+            text-align: center;
+        }
+    }
+}
